@@ -1,34 +1,35 @@
-// step1: write 4 functions for each categories, to process user input in 4 different ways.
-const userSentence = 'I love coding a!';
+// step1: declare an empty object to store functions
+const languageGenerator = {};
+// step2: write 4 functions for each categories, to process user input in 4 different ways. And store them in object
 
 // function - mirror 
 // which will split user input into characters and reverse the order, finally join them back as a sentence.
-const mirror = function(string) {
-    string = string
-        .split('')
-        .reverse()
-        .join('');
-    return string;
-}
-console.log(mirror(userSentence));
+languageGenerator.mirror = function(string) {
+        string = string
+            .split('')
+            .reverse()
+            .join('');
+        return string;
+    }
+    // console.log(languageGenerator.mirror('i love coding'));
 
 
 
 // function - alien
 // which will split user input into characters, and mix it with alien characters, then join them back as a sentence.
-const alien = function(string) {
-    const alienCharacters = ['@', '#', '$', '%', '^', '&', '*', '/', '>', '<', '?', '⅋', '§', '¿'];
-    let strArray = string.split('');
-    for (let i = 0; i < strArray.length; i++) {
-        const randomNum = Math.floor(Math.random() * alienCharacters.length);
-        strArray[i] = alienCharacters[randomNum];
+languageGenerator.alien = function(string) {
+        const alienCharacters = ['@', '#', '$', '%', '^', '&', '*', '/', '>', '<', '?', '⅋', '§', '¿'];
+        let strArray = string.split('');
+        for (let i = 0; i < strArray.length; i++) {
+            const randomNum = Math.floor(Math.random() * alienCharacters.length);
+            strArray[i] = alienCharacters[randomNum];
+        }
+        return strArray.join('');
     }
-    return strArray.join('');
-}
-console.log(alien(userSentence));
+    // console.log(languageGenerator.alien('i love coding'));
 
 // function - ghost
-const ghost = function(string) {
+languageGenerator.ghost = function(string) {
     // in case users are inputing different cases.
     string.toLowerCase();
     // make an empty array to store result
@@ -55,12 +56,12 @@ const ghost = function(string) {
     return ghostSentence.join(' ');
 }
 
-console.log(ghost(userSentence));
+// console.log(languageGenerator.ghost('i love coding'));
 
 // function - wizard
 
 // Make a shuffle function that can shuffle letters from each word.
-// const shuffle = function(str) {
+// languageGenerator.shuffle = function(str) {
 //     for (let i = str.length - 1; i > 0; i--) {
 //         let randomNum = Math.floor(Math.random() * (i + 1));
 //         let x = str[i];
@@ -86,16 +87,23 @@ console.log(ghost(userSentence));
 
 // wizard(userSentence);
 
-// step2: Store user input into a variable
-// const userSentence = 'I love coding a!';
-
-// step3: Declare 4 global variables to store returned value from each function
-let mirrorResult;
-let alienResult;
-let ghostResult;
-let wizardResult;
 
 // step4: submit the form and prevent default;
 $(function() {
+    $('form').on('submit', function(event) {
+        event.preventDefault();
 
+        // step5: gather user input
+        let userCategory = $('input[name = language-category]:checked').val();
+        console.log(userCategory);
+        let userSentence = $('input[name = sentence]').val();
+        console.log(userSentence);
+
+        // step6: call the related function and stored the value into result. 
+        let result = languageGenerator[userCategory](userSentence);
+        console.log(result);
+
+        // step7: printing the result on the page.
+        $('.result').html(`<h3 class='result-style'>${result}</h3>`);
+    })
 });
