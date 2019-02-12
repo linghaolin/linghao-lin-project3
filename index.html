@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Supernatural Language Generator</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="bodyWrapper">
+        <header>
+            <div class="wrapper">
+                <h1>Supernatural Language Generator</h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="wrapper">
+                <form action="">
+                    <fieldset class="categories">
+                        <h2>Who you want to speak to?</h2>
+                        <label for="wizard" aria-label="wizard/witch"><i class="fas fa-hat-wizard"></i></label>
+                        <input type="radio" name="language-category" id="wizard" value="wizard">
+
+                        <label for="alien" aria-label="alien"><i class="fab fa-reddit-alien"></i></label>
+                        <input type="radio" name="language-category" id="alien" value="alien">
+
+                        <label for="ghost" aria-label="ghost"><i class="fas fa-ghost"></i></label>
+                        <input type="radio" name="language-category" id="ghost" value="ghost">
+
+                        <label for="mirror" aria-label="magic mirror"><i class="fas fa-star-of-david"></i></label>
+                        <input type="radio" name="language-category" id="mirror" value="mirror">
+                    </fieldset>
+
+                    <fieldset class="user-sentence">
+                        <h2>What you want to say?</h2>
+                        <input type="text" id="sentence" name="sentence" required maxlength="100" size="20" placeholder="No more than 100">
+                    </fieldset>
+
+                    <div class="button-container">
+                        <input type="submit" value="Convert!">
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <div class="result"></div>
+    </div>
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
