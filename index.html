@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Supernatural Language Generator</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Berkshire+Swash|Orbitron|Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -16,6 +16,7 @@
         <header>
             <div class="wrapper">
                 <h1>Supernatural Language Generator</h1>
+                <button class="start-btn">Start</button>
             </div>
         </header>
 
@@ -24,47 +25,65 @@
                 <form action="">
                     <fieldset class="categories">
                         <h2>Who you want to speak to?</h2>
-                        <label for="wizard" aria-label="wizard/witch"><i class="fas fa-hat-wizard"></i></label>
-                        <input type="radio" name="language-category" id="wizard" value="wizard">
+                        <div class="categories-flex">
+                            <div class="category-icon">
+                                <label for="wizard" aria-label="wizard/witch"><i class="fas fa-hat-wizard"></i></label>
+                                <input type="radio" name="language-category" id="wizard" value="wizard">
+                            </div>
 
-                        <label for="alien" aria-label="alien"><i class="fab fa-reddit-alien"></i></label>
-                        <input type="radio" name="language-category" id="alien" value="alien">
+                            <div class="category-icon">
+                                <label for="alien" aria-label="alien"><i class="fab fa-reddit-alien"></i></label>
+                                <input type="radio" name="language-category" id="alien" value="alien">
+                            </div>
 
-                        <label for="ghost" aria-label="ghost"><i class="fas fa-ghost"></i></label>
-                        <input type="radio" name="language-category" id="ghost" value="ghost">
+                            <div class="category-icon">
+                                <label for="ghost" aria-label="ghost"><i class="fas fa-ghost"></i></label>
+                                <input type="radio" name="language-category" id="ghost" value="ghost">
+                            </div>
 
-                        <label for="mirror" aria-label="magic mirror"><i class="fas fa-star-of-david"></i></label>
-                        <input type="radio" name="language-category" id="mirror" value="mirror">
+                            <div class="category-icon">
+                                <label for="mirror" aria-label="magic mirror"><i class="fas fa-star-of-david"></i></label>
+                                <input type="radio" name="language-category" id="mirror" value="mirror">
+                            </div>
+                        </div>
                     </fieldset>
 
                     <fieldset class="user-sentence">
                         <h2>What you want to say?</h2>
                         <input type="text" id="sentence" name="sentence" required maxlength="100" size="20" placeholder="No more than 100">
+                        <div class="button-container">
+                            <input type="submit" value="Convert!!!!!">
+                        </div>
                     </fieldset>
 
-                    <div class="button-container">
-                        <input type="submit" value="Convert!">
-                    </div>
                 </form>
             </div>
         </main>
 
         <div class="result">
+            <div class="wrapper">
 
-            <div class="image-wrapper alien">
-                <img src="assets/robot.jpg" alt="a white robot" class="result-image">
-            </div>
+                <h3 class="result-text-style result-result"></h3>
 
-            <div class="image-wrapper mirror">
-                <img src="assets/mirror.jpg" alt="a girl looking at a mirror" class="result-image">
-            </div>
+                <div class="characterReply">
+                    <h3 class='result-text-style result-reply'></h3>
 
-            <div class="image-wrapper wizard">
-                <img src="assets/wizard.jpg" alt="a man standing in cliff using a wand" class="result-image">
-            </div>
+                    <div class="image-wrapper alien">
+                        <img src="assets/robot.jpg" alt="a white robot" class="result-image">
+                    </div>
 
-            <div class="image-wrapper ghost">
-                <img src="assets/ghost.jpg" alt="a man's shadow in a glass" class="result-image">
+                    <div class="image-wrapper mirror">
+                        <img src="assets/mirror.jpg" alt="a girl looking at a mirror" class="result-image">
+                    </div>
+
+                    <div class="image-wrapper wizard">
+                        <img src="assets/wizard.jpg" alt="a man standing in cliff using a wand" class="result-image">
+                    </div>
+
+                    <div class="image-wrapper ghost">
+                        <img src="assets/ghost.jpg" alt="a man's shadow in a glass" class="result-image">
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -218,21 +218,161 @@ body {
   max-width: 1600px;
 }
 
-h1 {
-  font-family: 'Monoton', cursive;
-  font-size: 5rem;
+.wrapper {
+  margin: 0 5%;
 }
 
+h1,
 h2 {
-  font-family: 'Luckiest Guy', cursive;
-  font-size: 5rem;
-}
-
-input[type='radio'] {
-  display: none;
+  font-family: "Bangers", cursive;
+  font-size: 8rem;
+  letter-spacing: 12px;
 }
 
 i {
   font-size: 10rem;
+}
+
+header {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: deeppink;
+}
+
+header h1 {
+  color: yellow;
+}
+
+main .wrapper {
+  margin: 0;
+}
+
+main form {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+main form fieldset {
+  border: none;
+}
+
+main .categories {
+  padding: 10%;
+  color: yellow;
+  background-color: blueviolet;
+}
+
+main .categories .categories-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+main .user-sentence {
+  padding: 10%;
+  color: yellow;
+  background-color: #F92A82;
+}
+
+main .user-sentence input {
+  width: 100%;
+  font-size: 5rem;
+  font-family: "Bangers", cursive;
+  background-color: #F92A82;
+  border: 20px dashed yellow;
+}
+
+main .user-sentence input[type=submit] {
+  width: auto;
+  padding: 2%;
+  border: none;
+  margin: 2% auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main i:hover {
+  color: #F92A82;
+}
+
+main input[type='radio']:checked i {
+  border: 20px dashed yellow;
+}
+
+.image-wrapper {
+  width: 45%;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.result {
+  background-color: blueviolet;
+}
+
+.result .wrapper {
+  padding: 10%;
+}
+
+.result .characterReply {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 5%;
+  color: yellow;
+  font-size: 3rem;
+}
+
+.result .result-text-style {
+  font-size: 5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.result .result-reply {
+  font-size: 3rem;
+}
+
+.wizard-text {
+  font-family: "Berkshire Swash", cursive;
+}
+
+.alien-text {
+  font-family: "Orbitron", sans-serif;
+}
+
+.ghost-text {
+  font-family: "Special Elite", cursive;
+}
+
+.mirror-text {
+  font-family: "Bangers", cursive;
 }
 /*# sourceMappingURL=style.css.map */
