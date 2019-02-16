@@ -1,4 +1,5 @@
 .image-wrapper {
+    display: none;
     width: 45%;
     img {
         width: 100%;
@@ -24,8 +25,17 @@
         margin: 0;
         text-align: center;
     }
+    .result-result {
+        color: white;
+    }
     .result-reply {
-        font-size: 3rem;
+        font-size: 2rem;
+        line-height: 60px;
+        letter-spacing: 6px;
+    }
+    .restart-btn {
+        @include button($backOne);
+        margin: 5% auto;
     }
 }
 

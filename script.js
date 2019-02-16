@@ -7,10 +7,10 @@ const eventHandler = {};
 // also add the character library into the characterLibrary oject.
 characterLibrary.alien = ['@', '#', '$', '%', '^', '&', '*', '/', '>', '<', '?', '⅋', '§', '¿'];
 characterLibrary.ghost = ['👻', '😈', '💀', '🌚', '🎃'];
-characterLibrary.alienReply = "Hey, I'm not supernatural, your human(developer) are supernatural.";
+characterLibrary.alienReply = "Hey, I'm not supernatural. You're a human (developer),you are supernatural.";
 characterLibrary.ghostReply = "Tell me the truth, I'm kind of cute right?";
 characterLibrary.mirrorReply = "You really think you are talking to me? You are talking to yourself.....";
-characterLibrary.wizardReply = "You sure you want to play magic with me?";
+characterLibrary.wizardReply = "Are you sure you want to play magic with me?";
 characterLibrary.mirrorImage = "assets/mirror.jpg";
 characterLibrary.wizardImage = "assets/wizard.jpg";
 characterLibrary.alienImage = "assets/robot.jpg";
@@ -24,7 +24,6 @@ languageGenerator.mirror = function(string) {
         .reverse()
         .join('');
     return string;
-
 }
 
 // function 2 - alien
@@ -107,54 +106,92 @@ languageGenerator.wizard = function(string) {
     return strShuffle;
 }
 
-// step 4: add event listener on each 'input[name = language-category]:checked', so it can smooth scroll to next part. 
-eventHandler.iconHandler = function() {};
+// step 4: check if a string is legal
+eventHandler.isLegit = function(str) {
+    return str.match(/^[a-z0-9\.,?! ]+$/i);
+}
 
 // step 5: submit the form and prevent default;
+
 eventHandler.submitHandler = function() {
     $('form').on('submit', function(event) {
         event.preventDefault();
-        // hide the images from screen
-        // $('.image-wrapper').hide();
+        //delcalare all variables
+        let userCategory, userSentence, result, resultReply, resultStyle;
+
+        //delet all the data from last input
+        $('.result h3').html("");
+        $('.image-wrapper').hide();
+        $('.result-reply').removeClass(resultStyle);
 
         // gather user input
-        let userCategory = $('input[name = language-category]:checked').val();
+        userCategory = $('input[name = language-category]:checked').val();
         console.log(userCategory);
-        let userSentence = $('input[name = sentence]').val();
+        userSentence = $('input[name = sentence]').val();
         console.log(userSentence);
 
+        // check if a string is legal
+        if (!eventHandler.isLegit(userSentence)) {
+            alert('Your input is not valid, please input again.');
+            console.log('hi');
+            return;
+        };
+
         //call the related function and stored the value into result. 
-        let result = languageGenerator[userCategory](userSentence);
+        result = languageGenerator[userCategory](userSentence);
         console.log(result);
-        let resultReply = characterLibrary[userCategory + 'Reply'];
-        let resultStyle = `${userCategory}-text`;
+        resultReply = characterLibrary[userCategory + 'Reply'];
+        resultStyle = `${userCategory}-text`;
 
         //printing the result on the page.
         $('.result-result').append(`${result}`);
-        // $(`.image-wrapper.${userCategory}`).show();
+        $(`.image-wrapper.${userCategory}`).show();
         $('.result-reply').addClass(resultStyle).append(`${resultReply}`);
 
-        //smooth scroll to the result part
 
+        // smooth scroll to the result
+        var pos = $('#result').offset().top;
+        eventHandler.scrollToPosition(pos, '#result');
     })
 }
 
-// step 6: reset the form so user can play again(smooth scroll to the top);
+// step 6: add automatic scroll & smooth scroll
+eventHandler.scrollToPosition = function(pos, href) {
+    var $root = $('html, body');
 
-eventHandler.resetHandler = function() {};
+    $root.animate({
+        scrollTop: pos
+    }, 500, function() {
+        window.location.hash = href;
+    });
+}
+
+// http://javascriptkit.com/javatutors/scrolling-html-bookmark-javascript.shtml
+eventHandler.smoothScroll = function() {
+    $('a[href^="#"]').click(function() {
+        var href = $(this).attr('href');
+
+        var pos = $(href).offset().top;
+        eventHandler.scrollToPosition(pos, href);
+
+        return false;
+    });
+}
+
+// step 7: reset the form
+eventHandler.resetHandler = function() {
+    $('.restart-btn').on('click', function() {
+        $('input[name = sentence]').val(' ');
+        $('input[type=radio]').attr('checked', false);
+    })
+};
 
 // step 7: call all the event handler
 $(function() {
-    eventHandler.iconHandler();
+    eventHandler.smoothScroll();
     eventHandler.submitHandler();
     eventHandler.resetHandler();
 });
 
-// step 8: add smooth scroll
 
 // step 9: add typed animation and shaking animation
-
-// check if a string is legal
-function isLegit(str) {
-    return str.match(/[a-z0-9\.,?! ]+$/i);
-}

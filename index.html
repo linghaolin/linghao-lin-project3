@@ -13,43 +13,62 @@
 
 <body>
     <div class="body-wrapper">
-        <header>
+        <header id='start'>
             <div class="wrapper">
                 <h1>Supernatural Language Generator</h1>
-                <button class="start-btn">Start</button>
+                <div class="start-btn">
+                    <a href="#categories">Start</a>
+                </div>
             </div>
         </header>
 
         <main>
             <div class="wrapper">
+
                 <form action="">
-                    <fieldset class="categories">
-                        <h2>Who you want to speak to?</h2>
+                    <fieldset class="categories" id="categories">
+                        <h2>Who do you want to speak to?</h2>
                         <div class="categories-flex">
                             <div class="category-icon">
-                                <label for="wizard" aria-label="wizard/witch"><i class="fas fa-hat-wizard"></i></label>
-                                <input type="radio" name="language-category" id="wizard" value="wizard">
+                                <label for="wizard" aria-label="wizard/witch">
+                                    <input type="radio" name="language-category" id="wizard" value="wizard">
+                                    <a href="#text-input">
+                                        <i class="fas fa-hat-wizard"></i>
+                                    </a>
+                                </label>
                             </div>
 
                             <div class="category-icon">
-                                <label for="alien" aria-label="alien"><i class="fab fa-reddit-alien"></i></label>
-                                <input type="radio" name="language-category" id="alien" value="alien">
+                                <label for="alien" aria-label="alien">
+                                    <input type="radio" name="language-category" id="alien" value="alien">
+                                    <a href="#text-input">
+                                        <i class="fab fa-reddit-alien"></i>
+                                    </a>
+                                </label>
                             </div>
 
                             <div class="category-icon">
-                                <label for="ghost" aria-label="ghost"><i class="fas fa-ghost"></i></label>
-                                <input type="radio" name="language-category" id="ghost" value="ghost">
+                                <label for="ghost" aria-label="ghost">
+                                    <input type="radio" name="language-category" id="ghost" value="ghost">
+                                    <a href="#text-input">
+                                        <i class="fas fa-ghost"></i>
+                                    </a>
+                                </label>
                             </div>
 
                             <div class="category-icon">
-                                <label for="mirror" aria-label="magic mirror"><i class="fas fa-star-of-david"></i></label>
-                                <input type="radio" name="language-category" id="mirror" value="mirror">
+                                <label for="mirror" aria-label="magic mirror">
+                                    <input type="radio" name="language-category" id="mirror" value="mirror">
+                                    <a href="#text-input">
+                                        <i class="fas fa-star-of-david"></i>
+                                    </a>
+                                </label>
                             </div>
                         </div>
                     </fieldset>
 
-                    <fieldset class="user-sentence">
-                        <h2>What you want to say?</h2>
+                    <fieldset class="user-sentence" id="text-input">
+                        <h2>What do you want to say?</h2>
                         <input type="text" id="sentence" name="sentence" required maxlength="100" size="20" placeholder="No more than 100">
                         <div class="button-container">
                             <input type="submit" value="Convert!!!!!">
@@ -60,13 +79,13 @@
             </div>
         </main>
 
-        <div class="result">
+        <div class="result" id="result">
             <div class="wrapper">
 
-                <h3 class="result-text-style result-result"></h3>
+                <h3 class="result-text-style result-result">Check your translation here!</h3>
 
                 <div class="characterReply">
-                    <h3 class='result-text-style result-reply'></h3>
+                    <h3 class='result-text-style result-reply'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni officia laudantium sequi eos aliquam quo illo? Rem autem voluptates laboriosam voluptate, repellat magnam ullam doloremque aspernatur nam aut sit exercitationem?</h3>
 
                     <div class="image-wrapper alien">
                         <img src="assets/robot.jpg" alt="a white robot" class="result-image">
@@ -84,6 +103,11 @@
                         <img src="assets/ghost.jpg" alt="a man's shadow in a glass" class="result-image">
                     </div>
                 </div>
+
+                <div class="restart-btn">
+                    <a href="#start">Restart</a>
+                </div>
+
             </div>
 
         </div>
@@ -91,6 +115,7 @@
     </div>
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.1.2/jquery.smooth-scroll.min.js"></script>
     <script src="script.js"></script>
 </body>
 

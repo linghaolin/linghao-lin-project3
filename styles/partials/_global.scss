@@ -5,7 +5,7 @@ $titleOne: rgb(255, 255, 0);
 $titleTwo:#F92A82;
 // $backThree: rgb(255, 99, 71);
 // $titleThree: rgb(30, 144, 255);
-// $itemOne: rgb(220, 20, 60);
+$itemOne: #cb4e4e;
 // $itemTwo: rgb(25, 25, 112);
 $fontTitle: 'Bangers',
 cursive;
@@ -29,20 +29,52 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3,
+a {
     font-family: $fontTitle;
-    font-size: 8rem;
     letter-spacing: 12px;
 }
 
-// h2 {
-//     font-family: $fontBody;
-//     font-size: 5rem;
-// }
+h1 {
+    font-size: 8rem;
+}
+
+h2 {
+    font-size: 6rem;
+}
+
+h3 {
+    font-size: 4rem;
+}
+
 input[type='radio'] {
-    // display: none;
+    display: none;
 }
 
 i {
     font-size: 10rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+@mixin button($background) {
+    border-radius: 20px;
+    padding: 2%;
+    box-shadow: 0 10px darken($background, 10%);
+    text-align: center;
+    width: 30%;
+    background-color: $background;
+    a {
+        color: white;
+        font-size: 4rem;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        transform: translateY(3px);
+        box-shadow: 0 5px darken($background, 10%);
+    }
 }
