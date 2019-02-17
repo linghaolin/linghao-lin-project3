@@ -349,7 +349,7 @@ main .user-sentence input[type=submit] {
   text-align: center;
   width: 30%;
   background-color: blueviolet;
-  width: auto;
+  width: 60%;
   border: none;
   margin: 5% auto;
   display: -webkit-box;
@@ -358,6 +358,7 @@ main .user-sentence input[type=submit] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  letter-spacing: 6px;
 }
 
 main .user-sentence input[type=submit] a {
@@ -370,6 +371,21 @@ main .user-sentence input[type=submit]:hover, main .user-sentence input[type=sub
           transform: translateY(3px);
   -webkit-box-shadow: 0 5px #701ac0;
           box-shadow: 0 5px #701ac0;
+}
+
+main .category-icon:hover .category-intro {
+  opacity: 1;
+}
+
+main .category-intro {
+  font-size: 1.5rem;
+  background: rgba(7, 2, 12, 0.4);
+  display: block;
+  padding: 4%;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
 }
 
 @-webkit-keyframes shaking {
@@ -404,22 +420,12 @@ main i {
           animation-iteration-count: infinite;
 }
 
-main i:hover {
+main i:hover, main i:focus, main i:active {
   color: #F92A82;
 }
 
 main input[type='radio']:checked ~ i {
   color: #F92A82;
-}
-
-.image-wrapper {
-  display: none;
-  width: 45%;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: 100%;
 }
 
 .result {
@@ -470,6 +476,7 @@ main input[type='radio']:checked ~ i {
   width: 30%;
   background-color: deeppink;
   margin: 5% auto;
+  width: 60%;
 }
 
 .result .restart-btn a {
@@ -482,6 +489,16 @@ main input[type='radio']:checked ~ i {
           transform: translateY(3px);
   -webkit-box-shadow: 0 5px #e00079;
           box-shadow: 0 5px #e00079;
+}
+
+.image-wrapper {
+  display: none;
+  width: 45%;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
 }
 
 .wizard-text {

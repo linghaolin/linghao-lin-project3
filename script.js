@@ -7,7 +7,7 @@ const eventHandler = {};
 // also add the character library into the characterLibrary oject.
 characterLibrary.alien = ['@', '#', '$', '%', '^', '&', '*', '/', '>', '<', '?', '⅋', '§', '¿'];
 characterLibrary.ghost = ['👻', '😈', '💀', '🌚', '🎃'];
-characterLibrary.alienReply = "Hey, I'm not supernatural. You're a human (developer),you are supernatural.";
+characterLibrary.alienReply = "Hey, I'm not supernatural. You developers are supernatural.";
 characterLibrary.ghostReply = "Tell me the truth, I'm kind of cute right?";
 characterLibrary.mirrorReply = "You really think you are talking to me? You are talking to yourself.....";
 characterLibrary.wizardReply = "Are you sure you want to play magic with me?";
@@ -178,20 +178,53 @@ eventHandler.smoothScroll = function() {
     });
 }
 
+eventHandler.scrollToInput = function() {
+    $('input[name = language-category]').on('click', function() {
+        var pos = $('#text-input').offset().top;
+        eventHandler.scrollToPosition(pos, '#text-input');
+    })
+}
+
 // step 7: reset the form
+eventHandler.init = function() {
+    var pos = $('#start').offset().top;
+    eventHandler.scrollToPosition(pos, '#start');
+
+    $('input[name = sentence]').val('');
+    $('input[type=radio]').attr('checked', false);
+}
+
 eventHandler.resetHandler = function() {
-    $('.restart-btn').on('click', function() {
-        $('input[name = sentence]').val(' ');
-        $('input[type=radio]').attr('checked', false);
+    $('.restart-btn a').on('click', function() {
+        eventHandler.init();
     })
 };
 
 // step 7: call all the event handler
 $(function() {
-    eventHandler.smoothScroll();
+    // eventHandler.init();
+    eventHandler.scrollToInput();
     eventHandler.submitHandler();
     eventHandler.resetHandler();
+    eventHandler.smoothScroll();
 });
 
 
-// step 9: add typed animation and shaking animation
+// step 9: add result animation
+// import Typed from 'typed.js';
+
+// var options = {
+//     strings: $('.result-reply').text(),
+//     typeSpeed: 40
+// }
+
+// var typed = new Typed('.result-reply', options);
+// import anime from 'lib/';
+// const anime = require('lib/anime.js');
+anime({
+    targets: '.image-wrapper',
+    translateX: 250,
+    autoplay: true,
+    easing: 'easeInOutSine',
+    duration: 2000
+});

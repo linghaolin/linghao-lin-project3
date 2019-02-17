@@ -33,14 +33,26 @@ main {
         }
         input[type=submit] {
             @include button($backTwo);
-            width: auto;
+            width: 60%;
             border: none;
             margin: 5% auto;
             display: flex;
             justify-content: center;
+            letter-spacing: 6px;
         }
     }
-    // animation
+    .category-icon:hover .category-intro {
+        opacity: 1;
+    }
+    .category-intro {
+        font-size: 1.5rem;
+        background: rgba($color: darken($backTwo, 50%), $alpha: 0.4);
+        display: block;
+        padding: 4%;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
     @keyframes shaking {
         0% {
             transform: rotateZ(15deg);
@@ -54,7 +66,9 @@ main {
         animation-duration: 0.1s;
         animation-direction: alternate-reverse;
         animation-iteration-count: infinite;
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
             color: $titleTwo;
         }
     }

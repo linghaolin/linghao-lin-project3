@@ -1,12 +1,3 @@
-.image-wrapper {
-    display: none;
-    width: 45%;
-    img {
-        width: 100%;
-        height: 100%;
-    }
-}
-
 .result {
     background-color: $backTwo;
     .wrapper {
@@ -36,6 +27,30 @@
     .restart-btn {
         @include button($backOne);
         margin: 5% auto;
+        width: 60%;
+    }
+}
+
+//animation
+// @keyframes enter {
+//     0% {
+//         transform: translateY(-1000px);
+//     }
+//     50% {
+//         transform: translateY(0);
+//         transform: rotateZ(20deg);
+//     }
+//     100% {
+//         transform: rotateZ(-20deg);
+//     }
+// }
+.image-wrapper {
+    display: none;
+    width: 45%;
+    // animation: enter 2s linear 0.5s backwards;
+    img {
+        width: 100%;
+        height: 100%;
     }
 }
 
