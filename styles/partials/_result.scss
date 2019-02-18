@@ -1,11 +1,30 @@
+// animation 
+@keyframes enter {
+    0% {
+        transform: translateY(1000px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .result {
     background-color: $backTwo;
     .wrapper {
-        padding: 10%;
+        padding: 10% 0;
     }
     .characterReply {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: column-reverse;
         justify-content: space-around;
         margin-top: 5%;
         color: $titleOne;
@@ -23,6 +42,7 @@
         font-size: 2rem;
         line-height: 60px;
         letter-spacing: 6px;
+        animation: enter 1s linear 0.5s backwards;
     }
     .restart-btn {
         @include button($backOne);
@@ -31,23 +51,11 @@
     }
 }
 
-//animation
-// @keyframes enter {
-//     0% {
-//         transform: translateY(-1000px);
-//     }
-//     50% {
-//         transform: translateY(0);
-//         transform: rotateZ(20deg);
-//     }
-//     100% {
-//         transform: rotateZ(-20deg);
-//     }
-// }
 .image-wrapper {
     display: none;
     width: 45%;
-    // animation: enter 2s linear 0.5s backwards;
+    margin: 2% auto;
+    animation: enter 1s linear 0.5s backwards;
     img {
         width: 100%;
         height: 100%;
@@ -68,4 +76,53 @@
 
 .mirror-text {
     font-family: $fontTitle;
+}
+
+@media only screen and (max-width: 900px) {
+    .result {
+        .wrapper {
+            padding: 10% 5%;
+        }
+        .result-text-style {
+            font-size: 3rem;
+        }
+        .result-reply {
+            font-size: 2rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    .result {
+        .restart-btn a {
+            font-size: 3rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .wrapper {
+        margin: 0 5%;
+    }
+    .result {
+        .restart-btn a {
+            font-size: 2rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .result {
+        .result-text-style {
+            font-size: 2rem;
+            margin: 0;
+            text-align: center;
+        }
+        .result-reply {
+            line-height: 40px;
+            letter-spacing: 1px;
+            padding: 5% 0;
+            font-size: 1.5rem;
+        }
+    }
 }

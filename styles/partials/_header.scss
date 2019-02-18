@@ -1,15 +1,102 @@
 header {
-    height: 100vh;
     background-color: $backOne;
     .wrapper {
+        height: 100vh;
         display: flex;
         flex-direction: column;
-        // justify-content: center
     }
     h1 {
         color: $titleOne;
     }
     .start-btn {
         @include button($backTwo);
+    }
+}
+
+//responsive
+@media only screen and (max-width: 900px) {
+    h1 {
+        font-size: 7rem;
+    }
+    header {
+        .start-btn {
+            @include button($backTwo);
+            width: 40%;
+        }
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .wrapper {
+        text-align: center;
+    }
+    h1 {
+        font-size: 6rem;
+    }
+    header .wrapper {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    header {
+        h1 {
+            font-size: 5rem;
+        }
+        .start-btn a {
+            font-size: 3rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    header {
+        .wrapper {
+            height: 80vh;
+        }
+        h1 {
+            font-size: 4rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    h1,
+    h2,
+    h3,
+    a {
+        letter-spacing: 5px;
+    }
+    header {
+        .start-btn {
+            width: 50%;
+            a {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    h1,
+    h2,
+    h3,
+    a {
+        letter-spacing: 3px;
+    }
+    header {
+        .wrapper {
+            height: 70vh;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        .start-btn {
+            width: 50%;
+            a {
+                font-size: 1.5rem;
+            }
+        }
     }
 }

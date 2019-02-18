@@ -5,9 +5,9 @@ main {
     fieldset {
         border: none;
         margin: 0;
+        padding: 10%;
     }
     .categories {
-        padding: 10%;
         color: $titleOne;
         background-color: $backTwo;
         .categories-flex {
@@ -20,7 +20,6 @@ main {
         }
     }
     .user-sentence {
-        padding: 10%;
         color: $titleOne;
         background-color: $titleTwo;
         input {
@@ -41,13 +40,14 @@ main {
             letter-spacing: 6px;
         }
     }
-    .category-icon:hover .category-intro {
+    .category-icon:hover .category-intro,
+    .category-icon:focus .category-intro,
+    .category-icon:active .category-intro {
         opacity: 1;
     }
     .category-intro {
         font-size: 1.5rem;
         background: rgba($color: darken($backTwo, 50%), $alpha: 0.4);
-        display: block;
         padding: 4%;
         text-align: center;
         opacity: 0;
@@ -74,5 +74,87 @@ main {
     }
     input[type='radio']:checked~i {
         color: $titleTwo;
+    }
+}
+
+//responsive
+@media only screen and (max-width: 900px) {
+    i {
+        font-size: 8rem;
+    }
+    h2 {
+        font-size: 5rem;
+    }
+    main {
+        fieldset {
+            padding: 5%;
+        }
+        .user-sentence {
+            input {
+                font-size: 4rem;
+                padding: 2%;
+            }
+            input[type=submit] {
+                a {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    h2 {
+        font-size: 4rem;
+    }
+    i {
+        font-size: 6rem;
+    }
+    main .user-sentence {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        input {
+            font-size: 3rem;
+        }
+        input[type=submit] {
+            width: 50%;
+            a {
+                font-size: 3rem;
+            }
+        }
+    }
+    main .category-intro {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    h2 {
+        font-size: 3rem;
+    }
+    i {
+        font-size: 5rem;
+    }
+    main {
+        .user-sentence {
+            height: 70vh;
+            input {
+                border: 10px dashed $titleOne;
+                font-size: 2rem;
+            }
+            input[type=submit] {
+                letter-spacing: 2px;
+            }
+        }
+        .categories .categories-flex {
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .category-intro {
+            padding: 2%;
+            width: 50%;
+            margin: 4% auto;
+        }
     }
 }

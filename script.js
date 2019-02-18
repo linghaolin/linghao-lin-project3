@@ -126,20 +126,16 @@ eventHandler.submitHandler = function() {
 
         // gather user input
         userCategory = $('input[name = language-category]:checked').val();
-        console.log(userCategory);
         userSentence = $('input[name = sentence]').val();
-        console.log(userSentence);
 
         // check if a string is legal
         if (!eventHandler.isLegit(userSentence)) {
             alert('Your input is not valid, please input again.');
-            console.log('hi');
             return;
         };
 
         //call the related function and stored the value into result. 
         result = languageGenerator[userCategory](userSentence);
-        console.log(result);
         resultReply = characterLibrary[userCategory + 'Reply'];
         resultStyle = `${userCategory}-text`;
 
