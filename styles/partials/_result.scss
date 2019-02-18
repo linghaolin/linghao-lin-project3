@@ -17,32 +17,29 @@
     }
 }
 
+// result style
 .result {
     background-color: $backTwo;
     .wrapper {
-        padding: 10% 0;
+        padding: 5% 0;
     }
-    .characterReply {
+    .character-reply {
         display: flex;
         flex-direction: column-reverse;
-        justify-content: space-around;
-        margin-top: 5%;
         color: $titleOne;
-        font-size: 3rem;
     }
     .result-text-style {
-        font-size: 5rem;
         margin: 0;
         text-align: center;
-    }
-    .result-result {
-        color: white;
-    }
-    .result-reply {
-        font-size: 2rem;
         line-height: 60px;
         letter-spacing: 6px;
-        animation: enter 1s linear 0.5s backwards;
+    }
+    .result-result {
+        color: black;
+        span {
+            color: white;
+            display: block;
+        }
     }
     .restart-btn {
         @include button($backOne);
@@ -53,7 +50,7 @@
 
 .image-wrapper {
     display: none;
-    width: 45%;
+    width: 50%;
     margin: 2% auto;
     animation: enter 1s linear 0.5s backwards;
     img {
@@ -62,32 +59,37 @@
     }
 }
 
-.wizard-text {
+.wizard-reply {
     font-family: $fontWizard;
 }
 
-.alien-text {
+.alien-reply {
     font-family: $fontAlien;
 }
 
-.ghost-text {
+.ghost-reply {
     font-family: $fontGhost;
 }
 
-.mirror-text {
+.mirror-reply {
     font-family: $fontTitle;
+}
+
+.alien-reply,
+.ghost-reply,
+.mirror-reply,
+.wizard-reply {
+    display: none;
+    animation: fade 1s linear 1.5s backwards;
 }
 
 @media only screen and (max-width: 900px) {
     .result {
         .wrapper {
-            padding: 10% 5%;
+            padding: 5%;
         }
         .result-text-style {
             font-size: 3rem;
-        }
-        .result-reply {
-            font-size: 2rem;
         }
     }
 }
@@ -97,32 +99,52 @@
         .restart-btn a {
             font-size: 3rem;
         }
+        .result-text-style {
+            font-size: 2rem;
+            margin: 0;
+            text-align: center;
+            line-height: 55px;
+            letter-spacing: 1px;
+        }
+        .result-result {
+            font-size: 4rem;
+            span {
+                margin-top: 2%;
+            }
+        }
     }
 }
 
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 560px) {
     .wrapper {
         margin: 0 5%;
     }
     .result {
+        .wrapper {
+            padding: 5% 0;
+        }
         .restart-btn a {
             font-size: 2rem;
         }
     }
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 445px) {
     .result {
-        .result-text-style {
-            font-size: 2rem;
-            margin: 0;
-            text-align: center;
+        .result-text-style.result-result {
+            font-size: 3.5rem;
         }
-        .result-reply {
-            line-height: 40px;
-            letter-spacing: 1px;
-            padding: 5% 0;
+        .result-text-style {
             font-size: 1.5rem;
+            line-height: 50px;
+        }
+    }
+}
+
+@media only screen and (max-width: 345px) {
+    .result {
+        .result-text-style.result-result {
+            font-size: 2.5rem;
         }
     }
 }

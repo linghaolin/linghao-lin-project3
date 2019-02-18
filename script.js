@@ -7,17 +7,9 @@ const eventHandler = {};
 // also add the character library into the characterLibrary oject.
 characterLibrary.alien = ['@', '#', '$', '%', '^', '&', '*', '/', '>', '<', '?', '⅋', '§', '¿'];
 characterLibrary.ghost = ['👻', '😈', '💀', '🌚', '🎃'];
-characterLibrary.alienReply = "Hey, I'm not supernatural. You developers are supernatural.";
-characterLibrary.ghostReply = "Tell me the truth, I'm kind of cute right?";
-characterLibrary.mirrorReply = "You really think you are talking to me? You are talking to yourself.....";
-characterLibrary.wizardReply = "Are you sure you want to play magic with me?";
-characterLibrary.mirrorImage = "assets/mirror.jpg";
-characterLibrary.wizardImage = "assets/wizard.jpg";
-characterLibrary.alienImage = "assets/robot.jpg";
-characterLibrary.ghostImage = "assets/ghost.jpg";
 
 // function 1 - mirror 
-// split user input into characters and reverse the order, finally join them back as a sentence.
+// split user's input into characters and reverse the order, finally join them back as a sentence.
 languageGenerator.mirror = function(string) {
     string = string
         .split('')
@@ -27,7 +19,7 @@ languageGenerator.mirror = function(string) {
 }
 
 // function 2 - alien
-// split user input into characters, and mix it with alien characters, then join them back as a sentence.
+// split user's input into characters, and mix it with alien characters, then join them back as a sentence.
 languageGenerator.alien = function(string) {
     const alienCharacters = characterLibrary.alien;
     let strArray = string.split('');
@@ -47,7 +39,7 @@ languageGenerator.ghost = function(string) {
     // make 2 arrays to compare the characters in user input with vowls, and push them into result array. 
     const ghostCharacters = characterLibrary.ghost
     const vowels = ['a', 'e', 'i', 'o', 'u'];
-    // take all the vowls from user input, and convert them to emojis stored in ghostcharacters.
+    // take all the vowls from user input, and convert them to emojis.
     // if there is an 'a' triple the emoji, if there is an 'i' double the emoji
     for (let inputIndex = 0; inputIndex < string.length; inputIndex++) {
         for (let i = 0; i < vowels.length; i++) {
@@ -67,30 +59,25 @@ languageGenerator.ghost = function(string) {
 }
 
 // function 4 - wizard
+// Make a shuffle function that can shuffle letters from each word.
 
-/**
- * https://stackoverflow.com/a/6274381
- * Shuffles array in place.
- * @param {Array} a items An array containing the items.
- */
-languageGenerator.shuffle = function(a) {
-    for (let i = a.length - 1; i > 0; i--) {
+languageGenerator.shuffle = function(wor) {
+    for (let i = wor.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+        [wor[i], wor[j]] = [wor[j], wor[i]];
     }
-    return a;
+    return wor;
 }
 
-// Make a shuffle function that can shuffle letters from each word.
 languageGenerator.shuffleString = function(str) {
-    let a = [];
+    let word = [];
     for (let i = 0; i < str.length; i++) {
-        a.push(i);
+        word.push(i);
     }
-    this.shuffle(a);
+    this.shuffle(word);
     let result = '';
     for (let i = 0; i < str.length; i++) {
-        result += str[a[i]];
+        result += str[word[i]];
     }
     return result;
 }
@@ -117,32 +104,32 @@ eventHandler.submitHandler = function() {
     $('form').on('submit', function(event) {
         event.preventDefault();
         //delcalare all variables
-        let userCategory, userSentence, result, resultReply, resultStyle;
+        let userCategory, userSentence, result, resultReply;
 
         //delet all the data from last input
-        $('.result h3').html("");
-        $('.image-wrapper').hide();
-        $('.result-reply').removeClass(resultStyle);
+        eventHandler.clearOutput();
 
         // gather user input
         userCategory = $('input[name = language-category]:checked').val();
-        userSentence = $('input[name = sentence]').val();
-
+        userSentence = $('textarea[name = sentence]').val();
+        console.log(userSentence);
         // check if a string is legal
         if (!eventHandler.isLegit(userSentence)) {
-            alert('Your input is not valid, please input again.');
+            $('textarea[name = sentence]')
+                .val('')
+                .addClass('not-legit')
+                .attr('placeholder', 'invalid input, plese try again.');
             return;
         };
 
         //call the related function and stored the value into result. 
         result = languageGenerator[userCategory](userSentence);
-        resultReply = characterLibrary[userCategory + 'Reply'];
-        resultStyle = `${userCategory}-text`;
+        resultReply = `${userCategory}-reply`;
 
         //printing the result on the page.
-        $('.result-result').append(`${result}`);
+        $('.result-result span').append(`${result}`);
         $(`.image-wrapper.${userCategory}`).show();
-        $('.result-reply').addClass(resultStyle).append(`${resultReply}`);
+        $(`.result-text-style.${resultReply}`).show();
 
 
         // smooth scroll to the result
@@ -181,13 +168,26 @@ eventHandler.scrollToInput = function() {
     })
 }
 
-// step 7: reset the form
+// step 7: clear the form
+
+eventHandler.clearOutput = function() {
+    $('.result-result span').text("");
+    $('.image-wrapper').hide();
+    $('.character-reply h3').hide();
+    $('input[type=radio]').attr('checked', false);
+    $('textarea[name = sentence]')
+        .removeClass('not-legit')
+        .attr('placeholder', 'No more than 200');
+}
+
+// step 8: reset the form
+
 eventHandler.init = function() {
     var pos = $('#start').offset().top;
     eventHandler.scrollToPosition(pos, '#start');
 
-    $('input[name = sentence]').val('');
-    $('input[type=radio]').attr('checked', false);
+    eventHandler.clearOutput();
+    $('textarea[name = sentence]').val('');
 }
 
 eventHandler.resetHandler = function() {
@@ -198,29 +198,9 @@ eventHandler.resetHandler = function() {
 
 // step 7: call all the event handler
 $(function() {
-    // eventHandler.init();
+    eventHandler.init();
     eventHandler.scrollToInput();
     eventHandler.submitHandler();
     eventHandler.resetHandler();
     eventHandler.smoothScroll();
-});
-
-
-// step 9: add result animation
-// import Typed from 'typed.js';
-
-// var options = {
-//     strings: $('.result-reply').text(),
-//     typeSpeed: 40
-// }
-
-// var typed = new Typed('.result-reply', options);
-// import anime from 'lib/';
-// const anime = require('lib/anime.js');
-anime({
-    targets: '.image-wrapper',
-    translateX: 250,
-    autoplay: true,
-    easing: 'easeInOutSine',
-    duration: 2000
 });

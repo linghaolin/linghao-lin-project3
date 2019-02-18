@@ -5,14 +5,13 @@ main {
     fieldset {
         border: none;
         margin: 0;
-        padding: 10%;
+        padding: 5% 10%;
     }
     .categories {
         color: $titleOne;
         background-color: $backTwo;
         .categories-flex {
             display: flex;
-            flex-direction: row;
             justify-content: space-around;
             a {
                 color: $titleOne;
@@ -22,16 +21,19 @@ main {
     .user-sentence {
         color: $titleOne;
         background-color: $titleTwo;
+        h2 {
+            margin-bottom: 4%;
+        }
+        textarea,
         input {
             width: 100%;
             font-size: 5rem;
             font-family: $fontTitle;
             background-color: $titleTwo;
-            border: 20px dashed $titleOne;
-            color: white;
         }
         input[type=submit] {
             @include button($backTwo);
+            color: white;
             width: 60%;
             border: none;
             margin: 5% auto;
@@ -77,6 +79,17 @@ main {
     }
 }
 
+// when input is not legit
+textarea {
+    border: 20px dashed $titleOne;
+    color: white;
+}
+
+.not-legit {
+    border: 20px dashed black;
+    color: black;
+}
+
 //responsive
 @media only screen and (max-width: 900px) {
     i {
@@ -90,7 +103,7 @@ main {
             padding: 5%;
         }
         .user-sentence {
-            input {
+            textarea {
                 font-size: 4rem;
                 padding: 2%;
             }
@@ -114,14 +127,12 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        textarea,
         input {
             font-size: 3rem;
         }
         input[type=submit] {
             width: 50%;
-            a {
-                font-size: 3rem;
-            }
         }
     }
     main .category-intro {
@@ -139,9 +150,10 @@ main {
     main {
         .user-sentence {
             height: 70vh;
+            textarea,
             input {
                 border: 10px dashed $titleOne;
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
             input[type=submit] {
                 letter-spacing: 2px;

@@ -227,7 +227,7 @@ h2,
 h3,
 a {
   font-family: "Bangers", cursive;
-  letter-spacing: 12px;
+  letter-spacing: 10px;
 }
 
 h1 {
@@ -236,6 +236,7 @@ h1 {
 
 h2 {
   font-size: 6rem;
+  margin-top: 0;
 }
 
 h3 {
@@ -298,6 +299,9 @@ header .start-btn:hover, header .start-btn:focus, header .start-btn:active {
 @media only screen and (max-width: 900px) {
   h1 {
     font-size: 7rem;
+  }
+  header .wrapper {
+    margin: 0 5%;
   }
   header .start-btn {
     border-radius: 20px;
@@ -372,20 +376,11 @@ header .start-btn:hover, header .start-btn:focus, header .start-btn:active {
 }
 
 @media only screen and (max-width: 410px) {
-  h1,
-  h2,
-  h3,
-  a {
-    letter-spacing: 3px;
-  }
   header .wrapper {
     height: 70vh;
   }
   header h1 {
     font-size: 3rem;
-  }
-  header .start-btn {
-    width: 50%;
   }
   header .start-btn a {
     font-size: 1.5rem;
@@ -399,7 +394,7 @@ main .wrapper {
 main fieldset {
   border: none;
   margin: 0;
-  padding: 10%;
+  padding: 5% 10%;
 }
 
 main .categories {
@@ -411,10 +406,6 @@ main .categories .categories-flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -428,13 +419,16 @@ main .user-sentence {
   background-color: #F92A82;
 }
 
+main .user-sentence h2 {
+  margin-bottom: 4%;
+}
+
+main .user-sentence textarea,
 main .user-sentence input {
   width: 100%;
   font-size: 5rem;
   font-family: "Bangers", cursive;
   background-color: #F92A82;
-  border: 20px dashed yellow;
-  color: white;
 }
 
 main .user-sentence input[type=submit] {
@@ -445,6 +439,7 @@ main .user-sentence input[type=submit] {
   text-align: center;
   width: 30%;
   background-color: blueviolet;
+  color: white;
   width: 60%;
   border: none;
   margin: 5% auto;
@@ -525,6 +520,16 @@ main input[type='radio']:checked ~ i {
   color: #F92A82;
 }
 
+textarea {
+  border: 20px dashed yellow;
+  color: white;
+}
+
+.not-legit {
+  border: 20px dashed black;
+  color: black;
+}
+
 @media only screen and (max-width: 900px) {
   i {
     font-size: 8rem;
@@ -535,7 +540,7 @@ main input[type='radio']:checked ~ i {
   main fieldset {
     padding: 5%;
   }
-  main .user-sentence input {
+  main .user-sentence textarea {
     font-size: 4rem;
     padding: 2%;
   }
@@ -563,14 +568,12 @@ main input[type='radio']:checked ~ i {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  main .user-sentence textarea,
   main .user-sentence input {
     font-size: 3rem;
   }
   main .user-sentence input[type=submit] {
     width: 50%;
-  }
-  main .user-sentence input[type=submit] a {
-    font-size: 3rem;
   }
   main .category-intro {
     font-size: 1rem;
@@ -587,9 +590,10 @@ main input[type='radio']:checked ~ i {
   main .user-sentence {
     height: 70vh;
   }
+  main .user-sentence textarea,
   main .user-sentence input {
     border: 10px dashed yellow;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   main .user-sentence input[type=submit] {
     letter-spacing: 2px;
@@ -654,10 +658,10 @@ main input[type='radio']:checked ~ i {
 }
 
 .result .wrapper {
-  padding: 10% 0;
+  padding: 5% 0;
 }
 
-.result .characterReply {
+.result .character-reply {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -665,29 +669,23 @@ main input[type='radio']:checked ~ i {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  margin-top: 5%;
   color: yellow;
-  font-size: 3rem;
 }
 
 .result .result-text-style {
-  font-size: 5rem;
   margin: 0;
   text-align: center;
+  line-height: 60px;
+  letter-spacing: 6px;
 }
 
 .result .result-result {
-  color: white;
+  color: black;
 }
 
-.result .result-reply {
-  font-size: 2rem;
-  line-height: 60px;
-  letter-spacing: 6px;
-  -webkit-animation: enter 1s linear 0.5s backwards;
-          animation: enter 1s linear 0.5s backwards;
+.result .result-result span {
+  color: white;
+  display: block;
 }
 
 .result .restart-btn {
@@ -716,7 +714,7 @@ main input[type='radio']:checked ~ i {
 
 .image-wrapper {
   display: none;
-  width: 45%;
+  width: 50%;
   margin: 2% auto;
   -webkit-animation: enter 1s linear 0.5s backwards;
           animation: enter 1s linear 0.5s backwards;
@@ -727,31 +725,37 @@ main input[type='radio']:checked ~ i {
   height: 100%;
 }
 
-.wizard-text {
+.wizard-reply {
   font-family: "Berkshire Swash", cursive;
 }
 
-.alien-text {
+.alien-reply {
   font-family: "Orbitron", sans-serif;
 }
 
-.ghost-text {
+.ghost-reply {
   font-family: "Special Elite", cursive;
 }
 
-.mirror-text {
+.mirror-reply {
   font-family: "Bangers", cursive;
+}
+
+.alien-reply,
+.ghost-reply,
+.mirror-reply,
+.wizard-reply {
+  display: none;
+  -webkit-animation: fade 1s linear 1.5s backwards;
+          animation: fade 1s linear 1.5s backwards;
 }
 
 @media only screen and (max-width: 900px) {
   .result .wrapper {
-    padding: 10% 5%;
+    padding: 5%;
   }
   .result .result-text-style {
     font-size: 3rem;
-  }
-  .result .result-reply {
-    font-size: 2rem;
   }
 }
 
@@ -759,28 +763,46 @@ main input[type='radio']:checked ~ i {
   .result .restart-btn a {
     font-size: 3rem;
   }
+  .result .result-text-style {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    line-height: 55px;
+    letter-spacing: 1px;
+  }
+  .result .result-result {
+    font-size: 4rem;
+  }
+  .result .result-result span {
+    margin-top: 2%;
+  }
 }
 
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 560px) {
   .wrapper {
     margin: 0 5%;
+  }
+  .result .wrapper {
+    padding: 5% 0;
   }
   .result .restart-btn a {
     font-size: 2rem;
   }
 }
 
-@media only screen and (max-width: 380px) {
-  .result .result-text-style {
-    font-size: 2rem;
-    margin: 0;
-    text-align: center;
+@media only screen and (max-width: 445px) {
+  .result .result-text-style.result-result {
+    font-size: 3.5rem;
   }
-  .result .result-reply {
-    line-height: 40px;
-    letter-spacing: 1px;
-    padding: 5% 0;
+  .result .result-text-style {
     font-size: 1.5rem;
+    line-height: 50px;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  .result .result-text-style.result-result {
+    font-size: 2.5rem;
   }
 }
 

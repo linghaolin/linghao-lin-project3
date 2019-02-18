@@ -65,7 +65,7 @@
 
                     <fieldset class="user-sentence" id="text-input">
                         <h2>What do you want to say?</h2>
-                        <input type="text" id="sentence" name="sentence" required maxlength="100" size="20" placeholder="No more than 100">
+                        <textarea name="sentence" id="sentence" cols="5" rows="5" required placeholder="No more than 200"></textarea>
                         <div class="button-container">
                             <input type="submit" value="Convert!!">
                         </div>
@@ -78,10 +78,13 @@
         <div class="result" id="result">
             <div class="wrapper">
 
-                <h3 class="result-text-style result-result">Check your translation here!</h3>
+                <h3 class="result-text-style result-result">Your translation: <span>Check your translation here!</span></h3>
 
-                <div class="characterReply">
-                    <h3 class='result-text-style result-reply'></h3>
+                <div class="character-reply">
+                    <h3 class='result-text-style alien-reply'>Hey, I'm not supernatural. You developers are supernatural.</h3>
+                    <h3 class='result-text-style ghost-reply'>Tell me the truth, I'm kind of cute right?</h3>
+                    <h3 class='result-text-style mirror-reply'>You really think you are talking to me? You are talking to yourself.....</h3>
+                    <h3 class='result-text-style wizard-reply'>Are you sure you want to play magic with me?</h3>
 
                     <div class="image-wrapper alien">
                         <img src="assets/robot.jpg" alt="a white robot" class="result-image">
@@ -114,9 +117,6 @@
     </footer>
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script> -->
-    <script src="./node_modules/animejs/lib/anime.min.js"></script>
-    <!-- <script src="anime.min.js"></script> -->
     <script src="script.js"></script>
 </body>
 
