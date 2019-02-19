@@ -112,7 +112,6 @@ eventHandler.submitHandler = function() {
         // gather user input
         userCategory = $('input[name = language-category]:checked').val();
         userSentence = $('textarea[name = sentence]').val();
-        console.log(userSentence);
         // check if a string is legal
         if (!eventHandler.isLegit(userSentence)) {
             $('textarea[name = sentence]')
